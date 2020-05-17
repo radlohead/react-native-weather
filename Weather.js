@@ -39,18 +39,24 @@ const weatherCases = {
     colors: ['#89f7fe', '#66a6ff'],
     title: 'Drizzle',
     subtitle: 'Is like rain, but gay',
-    icon: 'ios-rainy-outline',
+    icon: 'ios-rainy',
   },
   Haze: {
     colors: ['#89f7fe', '#66a6ff'],
     title: 'Haze',
     subtitle: "Don't know what that is ..",
-    icon: 'ios-rainy-outline',
+    icon: 'ios-rainy',
+  },
+  Mist: {
+    colors: ['#89f7fe', '#66a6ff'],
+    title: 'Mist',
+    subtitle: "Don't know what that is ..",
+    icon: 'ios-cloud',
   },
 };
 
 function Weather({weatherName, temp}) {
-  console.log(weatherName);
+  //   console.log(weatherName);
   return (
     <LinearGradient
       colors={weatherCases[weatherName].colors}
