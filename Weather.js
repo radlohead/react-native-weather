@@ -6,9 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default class Weather extends Component {
   render() {
     return (
-      <LinearGradient
-        colors={['#00c6fb', '#005bea', 'red']}
-        style={styles.container}>
+      <LinearGradient colors={['#00c6fb', '#005bea']} style={styles.container}>
         <View style={styles.upper}>
           <Icon name="ios-thunderstorm" color="white" size={144}></Icon>
           <Text style={styles.temp}>35º</Text>
