@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Weather extends Component {
   render() {
@@ -9,8 +10,8 @@ export default class Weather extends Component {
         colors={['#00c6fb', '#005bea', 'red']}
         style={styles.container}>
         <View style={styles.upper}>
-          <Text>Icon here!</Text>
-          <Text style={styles.temp}>35</Text>
+          <Icon name="ios-thunderstorm" color="white" size={144}></Icon>
+          <Text style={styles.temp}>35º</Text>
         </View>
         <View style={styles.lower}>
           <Text style={styles.title}>Raining like a MF</Text>
