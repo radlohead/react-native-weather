@@ -3,18 +3,19 @@ import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import Weather from './Weather';
 
+const API_KEY = '8c6c69852e6bb1477831f64dad192fa3';
+
 export default class App extends Component {
   state = {
     isLoaded: false,
     error: null,
+    temperature: null,
+    name: null,
   };
   componentDidMount() {
     Geolocation.getCurrentPosition(
       (position) => {
-        console.log(position);
-        this.setState({
-          isLoaded: true,
-        });
+        this.getWeather(position.coords.latitude, position.coords.longitude);
       },
       (error) => {
         this.setState({
@@ -23,8 +24,22 @@ export default class App extends Component {
       },
     );
   }
+  getWeather = (lat, lon) => {
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`,
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        this.setState({
+          isLoaded: true,
+          temperature: json.main.temp,
+          name: json.weather[0].main,
+        });
+      });
+  };
   render() {
-    const {isLoaded, error} = this.state;
+    const {isLoaded, error, temperature} = this.state;
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
