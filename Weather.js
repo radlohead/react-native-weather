@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
+import PropTypes from 'prop-types';
 
-function Weather() {
+function Weather({temp}) {
   return (
     <LinearGradient colors={['#00c6fb', '#005bea']} style={styles.container}>
       <View style={styles.upper}>
         <Icon name="ios-thunderstorm" color="white" size={144}></Icon>
-        <Text style={styles.temp}>35º</Text>
+        <Text style={styles.temp}>{temp}º</Text>
       </View>
       <View style={styles.lower}>
         <Text style={styles.title}>Raining like a MF</Text>
@@ -17,6 +18,10 @@ function Weather() {
     </LinearGradient>
   );
 }
+
+Weather.propTypes = {
+  temp: PropTypes.number.isRequired,
+};
 
 export default Weather;
 
